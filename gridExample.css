@@ -1,0 +1,277 @@
+/* column-gap: 15px; */
+/* fr - коэфицент растягивания */
+
+/* .grid-item-1 { */
+/* background-color: red; */
+/* grid-column-start: 3; */
+/* первый item должен начинаться с 3 линии колонки  */
+/* grid-column-end: 4; */
+/* первый item должен заканчиваться на 4 линии колонки  */
+/* grid-row-start: 1  ; */
+/* первый item должен начинаться с 3 линии ряда */
+/* grid-row-end: 4; */
+/* первый item должен заканчиваться на 4 линии ряда  */
+
+/* или можно записать так */
+/* grid-column: 3/4; */
+/* grid-row: 1/4; */
+
+/* или можно записать так */
+/* grid-area: 1/3/4/4; */
+/* grid-area :  grid-row-start/ grid-column-start/grid-row-end/grid-column-end */
+/* } */
+
+/* именование grid - линий */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, [col] 1fr);
+  grid-template-rows: repeat(3, [row] 1fr);
+  grid-gap: 15px;
+}
+
+.grid-item {
+  min-height: 80px;
+}
+
+.grid-item-1 {
+  background-color: red;
+  /* grid-column: col 1 / col 3; */
+  grid-column: span 2;
+}
+
+.grid-item-2 {
+  background-color: rgb(47, 56, 106);
+  /* grid-column: col 3 / col 5; */
+  /* grid-row: row 1 / row 3; */
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.grid-item-3 {
+  background-color: rgb(52, 178, 35);
+  /* grid-column: col 5 / col 6; */
+  /* grid-row: row 1 / row 3; */
+  grid-row: span 2;
+}
+
+.grid-item-4 {
+  background-color: rgb(57, 108, 51);
+}
+
+.grid-item-5 {
+  background-color: rgb(202, 183, 13);
+}
+
+.grid-item-6 {
+  background-color: rgb(192, 40, 116);
+}
+
+.grid-item-7 {
+  background-color: rgb(138, 224, 128);
+}
+
+.grid-item-8 {
+  background-color: rgb(164, 164, 147);
+}
+
+.grid-item-9 {
+  background-color: rgb(51, 108, 107);
+  /* grid-column: col 2 / col 4; */
+  grid-column: span 2;
+}
+
+.grid-item-10 {
+  background-color: rgb(108, 51, 96);
+  /* grid-column: col 4 / col 6; */
+  grid-column: span 2;
+}
+
+.grid-item-11 {
+  background-color: rgb(59, 51, 108);
+}
+
+#grid {
+  display: none;
+}
+
+/* управление порядком внутри grid контейнера */
+
+.grid-items {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, [col] 1fr);
+  grid-template-rows: repeat(4, [row] 1fr);
+  grid-gap: 5px;
+  /* grid-auto-flow: row; */
+  /* grid-auto-flow: row dense; */
+  /* dense - заполнит ближайшим элементом пустое место от после 2-го */
+}
+.item {
+}
+
+/* по умолчанию order = 0 */
+.item-1 {
+  background-color: rgb(59, 51, 108);
+  order: 1;
+}
+.item-2 {
+  background-color: rgb(108, 51, 96);
+  grid-column: span 2;
+  order: 2;
+}
+.item-3 {
+  background-color: rgb(51, 108, 107);
+  grid-column: span 2;
+  order: 5;
+}
+.item-5 {
+  background-color: rgb(24, 148, 146);
+  order: 4;
+}
+.item-4 {
+  background-color: rgb(59, 108, 51);
+  order: 3;
+}
+.item-6 {
+  background-color: rgb(74, 51, 108);
+}
+.item-7 {
+  background-color: rgb(108, 90, 51);
+}
+.item-8 {
+  background-color: rgb(203, 84, 28);
+}
+.item-9 {
+  background-color: rgb(61, 97, 14);
+}
+.item-10 {
+  background-color: rgb(159, 187, 186);
+}
+
+#grid-items {
+  display: none;
+}
+
+/*  */
+
+.grid-R {
+  display: grid;
+  gap: 10px;
+  height: 100vh;
+  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  /*  auto-fill - анализирует пустое просторанство и добавляет новый grid element*/
+  /*  auto-fit - растягивает дочерние grid elements на всю ширину*/
+}
+.grid-R-item-1 {
+  background-color: rgb(59, 51, 108);
+}
+.grid-R-item-2 {
+  background-color: rgb(108, 51, 96);
+}
+.grid-R-item-3 {
+  background-color: rgb(51, 108, 107);
+}
+.grid-R-item-5 {
+  background-color: rgb(24, 148, 146);
+}
+.grid-R-item-4 {
+  background-color: rgb(59, 108, 51);
+}
+.grid-R-item-6 {
+  background-color: rgb(74, 51, 108);
+}
+.grid-R-item-7 {
+  background-color: rgb(108, 90, 51);
+}
+.grid-R-item-8 {
+  background-color: rgb(203, 84, 28);
+}
+.grid-R-item-9 {
+  background-color: rgb(61, 97, 14);
+}
+.grid-R-item-10 {
+  background-color: rgb(159, 187, 186);
+}
+.grid-item-R {
+}
+
+#grid-R {
+  display: none;
+}
+
+/* создание гибкого макета */
+.containet {
+  display: grid;
+  height: 100vh;
+  color: white;
+  font-size: 2.5rem;
+  text-align: center;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(150px, 200px) 1fr minmax(150px, 200px);
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+}
+
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: nav;
+}
+aside {
+  grid-area: aside;
+}
+footer {
+  grid-area: footer;
+}
+main {
+  grid-area: main;
+}
+
+@media screen and (max-width: 510px) {
+  aside {
+    display: none;
+  }
+  .containet {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "header header"
+      "nav main"
+      "footer footer";
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .containet {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "nav "
+      "main"
+      "footer ";
+  }
+}
+
+.element-1 {
+  background-color: rgb(143, 5, 115);
+}
+.element-2 {
+  background-color: rgb(122, 245, 7);
+}
+.element-3 {
+  background-color: rgb(245, 78, 7);
+}
+.content {
+  background-color: rgb(7, 233, 245);
+}
+.element-4 {
+  background-color: rgb(7, 82, 245);
+}
+.element-5 {
+  background-color: rgb(59, 7, 245);
+}
+.element-6 {
+  background-color: rgb(26, 105, 9);
+}
